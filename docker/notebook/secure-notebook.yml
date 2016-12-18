@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  notebook:
+    build: .
+    image: my-notebook
+    container_name: ${NAME}
+    volumes:
+     - "work:/home/liam/work"
+    ports:
+      - "${PORT}:8888"
+    environment:
+      USE_HTTPS: "yes"
+      PASSWORD: ${PASSWORD}
+
+volumes:
+  work:
+    external:
+      name: ${WORK_VOLUME}
