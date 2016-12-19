@@ -4,6 +4,8 @@ This is the code that powers https://kaggle.lihorne.com - my personal Jupyter No
 
 ### Starting the server
 
+Simply specify the contest name and a password for the server.
+
 ```bash
-./docker/notebook/up.sh --letsencrypt --password <some_password> --secrets kaggle.lihorne.com-secrets
+CONTEST=dstl-satellite-imagery-feature-detection PASSWORD=???????? ./up.sh
 ```

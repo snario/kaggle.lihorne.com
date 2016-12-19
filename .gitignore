@@ -1,2 +1,6 @@
-# input folder w/ data for Kaggle contests
 input
+.ipynb_checkpoints
+.DS_Store
+*.png
+*.pdf
+

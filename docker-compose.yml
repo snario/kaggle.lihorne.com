@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+  notebook:
+    build: ./contests/${CONTEST}
+    volumes:
+      - ./contests/${CONTEST}/src:/home/jovyan/work
+      - secrets:/etc/letsencrypt
+    ports:
+      - "443:8888"
+    environment:
+      USE_HTTPS: "yes"
+      PASSWORD: ${PASSWORD}
+    command: >
+      start-notebook.sh
+      --NotebookApp.certfile=/etc/letsencrypt/fullchain.pem
+      --NotebookApp.keyfile=/etc/letsencrypt/privkey.pem
+
+volumes:
+  secrets:
+    external:
+      name: kaggle.lihorne.com-secrets
